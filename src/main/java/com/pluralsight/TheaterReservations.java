@@ -17,7 +17,7 @@ public class TheaterReservations
     public static void promptUser()
     {
         String userName = " ";
-        LocalDate formattedDate;
+        String formattedDate;
         int ticketAmount = 0;
 
         System.out.println("""
@@ -52,7 +52,7 @@ public class TheaterReservations
         return ticketString;
     }
 
-    public static LocalDate formatDateFromString()
+    public static String formatDateFromString()
     {
         while (true)
         {
@@ -61,12 +61,14 @@ public class TheaterReservations
                 String enteredDate = input.nextLine();
 
                 DateTimeFormatter formatEntry = DateTimeFormatter.ofPattern("M/d/yyyy");
-                //DateTimeFormatter formatForOutput = DateTimeFormatter.ofPattern("EEEE, MMM dd, yyyy");
+                DateTimeFormatter formatForOutput = DateTimeFormatter.ofPattern("EEEE, MMM dd, yyyy");
                 LocalDate formattedDate = LocalDate.parse(enteredDate, formatEntry);
 
+                String stringDate = formattedDate.toString();
+                stringDate = formattedDate.format(formatForOutput);
 
 
-                return formattedDate;
+                return stringDate;
             }
             catch (Exception e)
             {

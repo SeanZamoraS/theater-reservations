@@ -76,7 +76,7 @@ public class TheaterReservations
             catch (Exception e)
             {
                 System.out.println("Please enter a valid date (MM/DD/YYYY):\n");
-                //doesn't need nextLine(), getting a string, nothing to clear
+                //doesn't need nextLine(), buffer is cleared from try block, vs nextInt() doesn't clear \n
             }
         }
 
